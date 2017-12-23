@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="Mvp Activity"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates a new mvp activity">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+	<!--parameter 标签表示创建时需要输入的属性 -->
+	<parameter
+        id="ActivityClass"
+        name="Activity ClassName"
+        type="string"
+        constraints="nonempty"
+        default="name" />
+
+	<!--复选框属性-->
+	<!--<parameter
+        id="isTitleBar"
+        name="是否需要titleBar"
+        type="boolean"
+        default="false"
+        help="选中即添加默认TitleBar" />-->
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>

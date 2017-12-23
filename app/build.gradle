@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+def cfg = rootProject.ext.configuration
+def libs = rootProject.ext.libraries
+
+android {
+    compileSdkVersion cfg.compileVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        applicationId "com.luliang.devmvp"
+        minSdkVersion cfg.minSdk
+        targetSdkVersion cfg.targetSdk
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //noinspection GradleCompatible
+    implementation "com.android.support:appcompat-v7:${libs.supportVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${libs.constraint_layout}"
+    implementation "com.android.support:design:${libs.supportVersion}"
+    implementation "com.android.support:support-v13:${libs.supportVersion}"
+    implementation "com.android.support:support-vector-drawable:${libs.supportVersion}"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    /**
+     *    RxJava
+     */
+    implementation "io.reactivex.rxjava2:rxjava:${libs.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${libs.rxandroid}"
+
+    /**
+     *    retrofit2
+     */
+    implementation "com.squareup.retrofit2:retrofit:${libs.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${libs.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${libs.retrofit}"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${libs.rxjava2_adapter}"
+    implementation("com.github.ihsanbal:LoggingInterceptor:${libs.logging}") {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    /**
+     *   okhttp
+     */
+    implementation "com.squareup.okhttp3:okhttp:${libs.okhttp3}"
+
+
+}

@@ -1,0 +1,22 @@
+ext {
+    configuration = [
+            buildToolsVersion: "26.0.2",
+            compileVersion   : 26,
+            minSdk           : 15,
+            targetSdk        : 24,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+    ]
+
+
+    libraries = [
+            supportVersion       : "26.1.0",
+            retrofit             : "2.2.0",
+            rxjava               : "2.0.1",
+            rxandroid            : "2.0.1",
+            okhttp3              : "3.4.1",
+            constraint_layout    : "1.0.2",
+            rxjava2_adapter      : "1.0.0",
+            logging              : "2.0.3",
+    ]
+}
