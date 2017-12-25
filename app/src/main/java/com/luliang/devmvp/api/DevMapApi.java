@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.internal.platform.Platform;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -30,13 +31,14 @@ public class DevMapApi {
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS);
 
-        httpClientBuilder.addInterceptor(new LoggingInterceptor.Builder()
-                .setLevel(Level.BODY)
-                .log(Platform.INFO)
-                .request("Request")
-                .response("Response")
-                .addHeader("version", BuildConfig.VERSION_NAME)
-                .build());
+        httpClientBuilder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
+//        httpClientBuilder.addInterceptor(new LoggingInterceptor.Builder()
+//                .setLevel(Level.BODY)
+//                .log(Platform.INFO)
+//                .request("Request")
+//                .response("Response")
+//                .addHeader("version", BuildConfig.VERSION_NAME)
+//                .build());
         mRetrofit = new Retrofit.Builder()
                 .client(httpClientBuilder.build())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

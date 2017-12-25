@@ -12,8 +12,9 @@ import android.widget.TextView;
  * Created by Liang_Lu on 2017/12/21.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
     public Context mContext;
+    public T mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else {
             throw new RuntimeException("layoutResID==-1 have u create your layout?");
         }
+
+        createPresenter();
         initView();
     }
 
@@ -38,6 +41,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 获取contentView 资源id
      */
     public abstract int setContentViewId();
+
+    /**
+     * 创建presenter实例
+     */
+    public abstract void createPresenter();
 
     /**
      * activity跳转（无参数）
@@ -60,4 +68,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();//页面销毁 网络请求同销毁
+        }
+    }
 }

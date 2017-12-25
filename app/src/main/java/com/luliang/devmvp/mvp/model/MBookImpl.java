@@ -15,7 +15,7 @@ public class MBookImpl extends BaseModel {
     public void mBook(RxObservable rxObservable) {
         apiService()
                 .bookClassify()
-                .compose(RxTransformer.switchSchedulers())
+                .compose(RxTransformer.switchSchedulers(this))
                 .subscribe(rxObservable);
     }
 

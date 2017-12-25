@@ -2,6 +2,7 @@ package com.luliang.devmvp.mvp.base;
 
 import com.luliang.devmvp.api.DevMapApi;
 import com.luliang.devmvp.api.DevMvpService;
+import com.luliang.devmvp.utils.LogUtils;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -13,7 +14,7 @@ import io.reactivex.disposables.Disposable;
 public abstract class BaseModel {
 
 
-   public CompositeDisposable mDisposable = new CompositeDisposable();
+    public CompositeDisposable mDisposable = new CompositeDisposable();
 
 
     public DevMvpService apiService() {
@@ -27,7 +28,10 @@ public abstract class BaseModel {
 
 
     public void onDestroy() {
+
         if (mDisposable != null) {
+            LogUtils.print("Disposable", mDisposable + "");
+            LogUtils.print("Disposable", mDisposable.size() + "");
             mDisposable.isDisposed();
             mDisposable.clear();
         }

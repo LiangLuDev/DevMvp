@@ -24,6 +24,8 @@ public class BasePresenter<V extends IBaseView, M extends BaseModel> {
     }
 
     public void onDestroy() {
-        mModel.onDestroy();
+        if (mModel!=null) {
+            mModel.onDestroy();
+        }
     }
 }

@@ -16,17 +16,10 @@ import com.luliang.devmvp.mvp.presenter.PBookImpl;
  * V层 用于数据和页面UI展示（Fragment Dialog 同理）
  */
 
-public class BookActivity extends BaseActivity implements CBook.IVBook {
+public class BookActivity extends BaseActivity<PBookImpl> implements CBook.IVBook {
 
-    private PBookImpl mPBook;
     private TextView mTv;
     private Button mBtn;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPBook = new PBookImpl(mContext, this);
-    }
 
     @Override
     protected void initView() {
@@ -36,7 +29,7 @@ public class BookActivity extends BaseActivity implements CBook.IVBook {
         mBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPBook.pBook();
+                mPresenter.pBook();
             }
         });
 
@@ -46,6 +39,12 @@ public class BookActivity extends BaseActivity implements CBook.IVBook {
     public int setContentViewId() {
         return R.layout.activity_book;
     }
+
+    @Override
+    public void createPresenter() {
+        mPresenter = new PBookImpl(mContext, this);
+    }
+
 
     @Override
     public void showLoading() {
@@ -66,4 +65,5 @@ public class BookActivity extends BaseActivity implements CBook.IVBook {
     public void vBookError(String reason) {
         mTv.setText(reason);
     }
+
 }

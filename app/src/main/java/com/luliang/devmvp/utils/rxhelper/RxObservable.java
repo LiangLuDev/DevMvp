@@ -1,6 +1,7 @@
 package com.luliang.devmvp.utils.rxhelper;
 
 import com.luliang.devmvp.mvp.base.IDevMvpCallBack;
+import com.luliang.devmvp.utils.LogUtils;
 import com.luliang.devmvp.utils.ToastUtils;
 
 import io.reactivex.Observer;
@@ -34,7 +35,7 @@ public abstract class RxObservable<T> implements Observer<T>, IDevMvpCallBack<T>
 
     @Override
     public void onSubscribe(Disposable d) {
-
+        LogUtils.print("RxObservable", d + "");
     }
 
     @Override
