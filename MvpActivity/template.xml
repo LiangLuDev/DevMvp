@@ -18,13 +18,13 @@
         constraints="nonempty"
         default="name" />
 
-	<!--复选框属性-->
-	<!--<parameter
+		<!--复选框属性-->
+	<parameter
         id="isTitleBar"
         name="是否需要titleBar"
         type="boolean"
         default="false"
-        help="选中即添加默认TitleBar" />-->
+        help="选中即添加默认TitleBar" />
 
     <!-- 128x128 thumbnails relative to template.xml -->
     <thumbs>

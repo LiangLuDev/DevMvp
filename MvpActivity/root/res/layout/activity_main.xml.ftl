@@ -5,10 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-<!-- 根据template文件的parameter属性判断是否需要添加
-<#if isTitleBar>
+<!-- 根据template文件的parameter属性判断是否需要添加 -->
+	<#if isTitleBar>
 	<include layout="@layout/toolbar_layout"/>
-</#if>
-
--->
+	</#if>
 </LinearLayout>
