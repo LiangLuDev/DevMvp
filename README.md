@@ -410,9 +410,9 @@ public class ${ActivityName} extends BaseActivity<${PresenterName}> implements $
 > - 重启Android Studio。
 
 
-重启Android Studio之后，选中包名路径
+- 重启Android Studio之后，选中包名路径
 ![mvp-1.png](https://upload-images.jianshu.io/upload_images/2635045-a8a0cacc66a25934.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
-生成MvpActivity基础代码（MvpFragment可选中Fragment里面生成）
+- 生成MvpActivity基础代码（MvpFragment可选中Fragment里面生成）
 ![mvp-2.png](https://upload-images.jianshu.io/upload_images/2635045-b91715bcaa298728.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 
 #### 意见反馈
