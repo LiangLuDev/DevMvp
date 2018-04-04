@@ -3,6 +3,7 @@ package com.luliang.devmvp.mvp.presenter;
 import android.content.Context;
 
 import com.luliang.devmvp.mvp.base.BasePresenter;
+import com.luliang.devmvp.mvp.bean.BookBean;
 import com.luliang.devmvp.mvp.contract.CBook;
 import com.luliang.devmvp.mvp.model.MBookImpl;
 import com.luliang.devmvp.utils.rxhelper.RxObservable;
@@ -25,12 +26,12 @@ public class PBookImpl extends BasePresenter<CBook.IVBook, MBookImpl> implements
     @Override
     public void pBook() {
         mView.showLoading();
-        mModel.mBook(new RxObservable<Map>() {
+        mModel.mBook(new RxObservable<BookBean>() {
 
             @Override
-            public void onSuccess(Map map) {
+            public void onSuccess(BookBean bean) {
                 mView.hideLoading();
-                mView.vBookSuccess(map.toString());
+                mView.vBookSuccess(bean);
             }
 
             @Override

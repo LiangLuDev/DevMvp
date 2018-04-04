@@ -19,10 +19,6 @@ public class BasePresenter<V extends IBaseView, M extends BaseModel> {
         this.mContext = mContext;
     }
 
-    protected void addRxDisposable(Disposable disposable) {
-        mModel.mDisposable.add(disposable);
-    }
-
     public void onDestroy() {
         if (mModel!=null) {
             mModel.onDestroy();

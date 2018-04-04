@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Liang_Lu on 2017/12/21.
  */
@@ -25,8 +27,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         } else {
             throw new RuntimeException("layoutResID==-1 have u create your layout?");
         }
-
         createPresenter();
+        ButterKnife.bind(this);
         initView();
     }
 

@@ -1,12 +1,12 @@
 package com.luliang.devmvp.mvp.view.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.luliang.devmvp.R;
 import com.luliang.devmvp.mvp.base.BaseActivity;
+import com.luliang.devmvp.mvp.bean.BookBean;
 import com.luliang.devmvp.mvp.contract.CBook;
 import com.luliang.devmvp.mvp.presenter.PBookImpl;
 
@@ -57,8 +57,8 @@ public class BookActivity extends BaseActivity<PBookImpl> implements CBook.IVBoo
     }
 
     @Override
-    public void vBookSuccess(String result) {
-        mTv.setText(result);
+    public void vBookSuccess(BookBean bean) {
+        mTv.setText("网络请求成功");
     }
 
     @Override

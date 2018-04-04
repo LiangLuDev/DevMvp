@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="Mvp Fragment"
+    minApi="9"
+    minBuildApi="14"
+    description="Creates a new mvp fragment">
+
+    <category value="Fragment" />
+    <formfactor value="Mobile" />
+
+	<!--parameter 标签表示创建时需要输入的属性 -->
+	<parameter
+        id="FragmentClass"
+        name="Fragment ClassName"
+        type="string"
+        constraints="nonempty"
+        default="name" />
+		
+	
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <!--<thumb>template_blank_activity.png</thumb>-->
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>

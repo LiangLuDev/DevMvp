@@ -1,6 +1,6 @@
 package com.luliang.devmvp.mvp.base;
 
-import com.luliang.devmvp.api.DevMapApi;
+import com.luliang.devmvp.api.DevMvpApi;
 import com.luliang.devmvp.api.DevMvpService;
 import com.luliang.devmvp.utils.LogUtils;
 
@@ -16,26 +16,21 @@ public abstract class BaseModel {
 
     public CompositeDisposable mDisposable = new CompositeDisposable();
 
-
+    /**
+     * 初始化调用网络请求
+     * @return
+     */
     public DevMvpService apiService() {
-        return DevMapApi.createApi().create(DevMvpService.class);
+        return DevMvpApi.createApi().create(DevMvpService.class);
     }
-
-
-    protected void addRxDisposable(Disposable disposable) {
-        mDisposable.add(disposable);
-    }
-
-
+    /**
+     * 取消网络请求
+     */
     public void onDestroy() {
 
         if (mDisposable != null) {
-            LogUtils.print("Disposable", mDisposable + "");
-            LogUtils.print("Disposable", mDisposable.size() + "");
             mDisposable.isDisposed();
             mDisposable.clear();
         }
     }
-
-
 }

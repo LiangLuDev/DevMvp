@@ -3,6 +3,7 @@ package com.luliang.devmvp.mvp.contract;
 
 import com.luliang.devmvp.mvp.base.IBasePresenter;
 import com.luliang.devmvp.mvp.base.IBaseView;
+import com.luliang.devmvp.mvp.bean.BookBean;
 
 /**
  * Created by Liang_Lu on 2017/12/22.
@@ -18,7 +19,7 @@ public interface CBook {
 
     interface IVBook extends IBaseView {
 
-        void vBookSuccess(String result);
+        void vBookSuccess(BookBean bean);
 
         void vBookError(String reason);
 

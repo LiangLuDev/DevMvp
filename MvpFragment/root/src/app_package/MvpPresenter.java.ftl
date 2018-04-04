@@ -9,6 +9,7 @@ import ${packageName}.mvp.base.BasePresenter;
 
 /**
  * Created by Liang_Lu on 2017/12/21.
+ *
  * @author LuLiang
  * @github https://github.com/LiangLuDev
  */
