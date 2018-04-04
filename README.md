@@ -417,6 +417,17 @@ public class ${ActivityName} extends BaseActivity<${PresenterName}> implements $
 
 ![mvp-2.png](https://upload-images.jianshu.io/upload_images/2635045-b91715bcaa298728.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 
+#### 依赖库使用
+> 将所有依赖的版本控制提取到根目录下的config.gradle做统一管理
+> - supportVersion   : "26.1.0"
+> - retrofit         : "2.2.0",
+> - rxjava           : "2.0.1",
+> - rxandroid        : "2.0.1",
+> - okhttp3          : "3.4.1",
+> - constraint_layout: "1.0.2",
+> - rxjava2_adapter  : "1.0.0",
+> - logging          : "3.4.0-RC1",
+> - butterknife      : "8.8.1",
 #### 意见反馈
 如果遇到问题或者好的优化建议，请反馈到：927195249@qq.com 或者LiangLuDev@gmail.com
 
