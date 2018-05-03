@@ -29,7 +29,7 @@ public abstract class BaseModel {
     public void onDestroy() {
 
         if (mDisposable != null) {
-            mDisposable.isDisposed();
+            mDisposable.dispose();
             mDisposable.clear();
         }
     }
