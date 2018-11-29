@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.luliang.devmvp"><!--项目包名-->
 
   
     <application>
